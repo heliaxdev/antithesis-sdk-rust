@@ -35,7 +35,7 @@ macro_rules! function {
 macro_rules! assert_helper {
     // The handling of this pattern-arm of assert_helper
     // is wrapped in a block {} to avoid name collisions
-    (condition = $condition:expr, $message:literal, $(details = $details:expr)?, $assert_type:path, $display_type:literal, must_hit = $must_hit:literal) => {{
+    (condition = $condition:expr, $message:expr, $(details = $details:expr)?, $assert_type:path, $display_type:literal, must_hit = $must_hit:literal) => {{
         // Force evaluation of expressions.
         let condition = $condition;
         let details = &$crate::serde_json::json!({});
